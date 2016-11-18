@@ -1,4 +1,4 @@
-function ToDoController($scope){
+function ToDoController(){
 
   this.todos = [];
   this.newTitle = '';
@@ -10,8 +10,19 @@ function ToDoController($scope){
     });
     this.newTitle = '';
   };
+
+  this.filter = {
+    done: { done: true },
+    remaining: { done: false }
+  };
+
+  this.currentFilter = null;
+
+  this.changeFilter = function(filter){
+    this.currentFilter = filter;
+  };
 }
 
 angular
   .module('todoApp')
-  .controller('ToDoController', ToDoController)
+  .controller('ToDoController', ToDoController);

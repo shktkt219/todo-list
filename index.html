@@ -23,9 +23,12 @@
 
       <div>
         <button>All Complete/Incomplete</button>
-        <button class="active">All <span>{{ ctrl.todos.length }}</span></button>
-        <button>Incomplete <span>2</span></button>
-        <button>Complete <span>1</span></button>
+        <button ng-click="ctrl.changeFilter()"
+                ng-class="{ active: !ctrl.currentFilter }">All <span>{{ ctrl.todos.length }}</span></button>
+        <button ng-click="ctrl.changeFilter(ctrl.filter.remaining)"
+                ng-class="{ active: ctrl.currentFilter == ctrl.filter.remaining }">Incomplete <span>n</span></button>
+        <button ng-click="ctrl.changeFilter(filter.done)"
+                ng-class="{ active: ctrl.currentFilter == ctrl.filter.done }">Complete <span>n</span></button>
         <button>Delete all completed tasks</button>
       </div>
 
@@ -33,12 +36,14 @@
 
       <ul>
         <li class="todo-item"
-            ng-repeat="todo in ctrl.todos"
+            ng-repeat="todo in ctrl.todos | filter: ctrl.currentFilter"
             ng-class="{ done: todo.done}">
           <form>
             <input type="checkbox" ng-model="todo.done">
-            <span class="todo-title">{{ todo.title }}</span>
-            <button type="reset">Delete</button>
+            <p class="todo-title">{{ todo.title }}</p>
+            <span>
+              <button type="reset">Delete</button>
+            </span>
           </form>
         </li>
       </ul>
@@ -67,6 +72,7 @@
     <script src="js/angular.js"></script>
     <script src="js/app/app.js"></script>
     <script src="js/app/controllers/ToDoController.js">
+    <script src="js/app/controllers/ToolBarController.js">
 
     </script>
   </body>
