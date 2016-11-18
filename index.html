@@ -7,6 +7,8 @@
   <body ng-app="todoApp">
     <h1>To Do List</h1>
 
+    <hr>
+
     <form>
       <input
           type="text"
@@ -25,6 +27,30 @@
       <button>Delete all completed tasks</button>
     </div>
 
+    <hr>
+
+    <li class="todo-item">
+      <form>
+        <input type="checkbox">
+        <span class="todo-title">Incompleted Tasks</span>
+        <button type="reset">Delete</button>
+      </form>
+    </li>
+
+    <li class="todo-item done">
+      <form>
+        <input type="checkbox" checked>
+        <span class="todo-title">Completed Tasks</span>
+        <button type="reset">Delete</button>
+      </form>
+    </li>
+
+    <li class="todo-item editing">
+      <form>
+        <input type="checkbox">
+        <input type="text" required value="editing tasks">
+      </form>
+    </li>
 
 
     <script src="js/angular.js"></script>
