@@ -5,55 +5,63 @@
     <title>To Do List</title>
   </head>
   <body ng-app="todoApp">
-    <h1>To Do List</h1>
+    <div ng-controller="ToDoController as ctrl">
 
-    <hr>
+      <h1>To Do List</h1>
 
-    <form>
-      <input
-          type="text"
-          required
-          placeholder="new task">
-      <button type="submit">Add</button>
-    </form>
+      <hr>
 
-  　<hr>
+      <form ng-submit="ctrl.addTodo()">
+        <input
+            type="text"
+            required
+            placeholder="new task">
+        <button type="submit">Add</button>
+      </form>
 
-    <div>
-      <button>All Complete/Incomplete</button>
-      <button class="active">All <span>3</span></button>
-      <button>Incomplete <span>2</span></button>
-      <button>Complete <span>1</span></button>
-      <button>Delete all completed tasks</button>
+    　<hr>
+
+      <div>
+        <button>All Complete/Incomplete</button>
+        <button class="active">All <span>{{ ctrl.todo.length }}</span></button>
+        <button>Incomplete <span>2</span></button>
+        <button>Complete <span>1</span></button>
+        <button>Delete all completed tasks</button>
+      </div>
+
+      <hr>
+
+      <li class="todo-item" ng-repeat="todo in todos">
+        <form>
+          <input type="checkbox">
+          <span class="todo-title">{{ todo.title }}</span>
+          <button type="reset">Delete</button>
+        </form>
+      </li>
+
+      <li class="todo-item done">
+        <form>
+          <input type="checkbox" checked>
+          <span class="todo-title">Completed Tasks</span>
+          <button type="reset">Delete</button>
+        </form>
+      </li>
+
+      <li class="todo-item editing">
+        <form>
+          <input type="checkbox">
+          <input type="text" required value="editing tasks">
+        </form>
+      </li>
+
     </div>
 
-    <hr>
-
-    <li class="todo-item">
-      <form>
-        <input type="checkbox">
-        <span class="todo-title">Incompleted Tasks</span>
-        <button type="reset">Delete</button>
-      </form>
-    </li>
-
-    <li class="todo-item done">
-      <form>
-        <input type="checkbox" checked>
-        <span class="todo-title">Completed Tasks</span>
-        <button type="reset">Delete</button>
-      </form>
-    </li>
-
-    <li class="todo-item editing">
-      <form>
-        <input type="checkbox">
-        <input type="text" required value="editing tasks">
-      </form>
-    </li>
 
 
     <script src="js/angular.js"></script>
     <script src="js/app/app.js"></script>
+    <script src="js/app/controllers/ToDoController.js">
+
+    </script>
   </body>
 </html>
