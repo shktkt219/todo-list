@@ -14,8 +14,8 @@
       <form ng-submit="ctrl.addTodo()">
         <input
             type="text"
-            required
-            placeholder="new task">
+            required placeholder="new task"
+            ng-model="newTitle">
         <button type="submit">Add</button>
       </form>
 
@@ -23,7 +23,7 @@
 
       <div>
         <button>All Complete/Incomplete</button>
-        <button class="active">All <span>{{ ctrl.todo.length }}</span></button>
+        <button class="active">All <span>{{ ctrl.todos.length }}</span></button>
         <button>Incomplete <span>2</span></button>
         <button>Complete <span>1</span></button>
         <button>Delete all completed tasks</button>
@@ -31,15 +31,21 @@
 
       <hr>
 
-      <li class="todo-item" ng-repeat="todo in todos">
-        <form>
-          <input type="checkbox">
-          <span class="todo-title">{{ todo.title }}</span>
-          <button type="reset">Delete</button>
-        </form>
-      </li>
+      <ul>
+        <li class="todo-item"
+            ng-repeat="todo in ctrl.todos"
+            ng-class="{ done: todo.done}">
+          <form>
+            <input type="checkbox" ng-model="todo.done">
+            <span class="todo-title">{{ todo.title }}</span>
+            <button type="reset">Delete</button>
+          </form>
+        </li>
+      </ul>
 
-      <li class="todo-item done">
+
+
+      <!-- <li class="todo-item done">
         <form>
           <input type="checkbox" checked>
           <span class="todo-title">Completed Tasks</span>
@@ -52,7 +58,7 @@
           <input type="checkbox">
           <input type="text" required value="editing tasks">
         </form>
-      </li>
+      </li> -->
 
     </div>
 

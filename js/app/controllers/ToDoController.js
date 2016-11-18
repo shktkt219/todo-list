@@ -1,12 +1,14 @@
 function ToDoController($scope){
 
   this.todos = [];
+  this.newTitle = '';
 
   this.addTodo = function(){
     this.todos.push({
-      title: Math.random(),
+      title: this.newTitle,
       done: false
     });
+    this.newTitle = '';
   };
 }
 
