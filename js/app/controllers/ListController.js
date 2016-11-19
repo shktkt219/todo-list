@@ -2,7 +2,7 @@ function ListController(){
     var vm = this;
 
     vm.add = add;
-    vm.currentTask = {}
+    vm.currentTask = {};
 
     vm.list = {
       name: 'Todo List',

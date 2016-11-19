@@ -10,21 +10,17 @@
 
       <hr>
 
+      <input placeholder="new task"
+             ng-model="vm.currentTask.name">
+      <button ng-click="vm.add()">Add</button>
+
+      <hr>
+
       <div ng-repeat="task in vm.list.tasks | orderBy: '$index' ">
         <p>
           {{ $index + 1 }}: {{ task.name }} - completed: {{ task.complete }}
         </p>
       </div>
-
-      <hr>
-
-      <form ng-submit="ctrl.addTodo()">
-        <input
-            type="text"
-            required placeholder="new task"
-            ng-model="newTitle">
-        <button type="submit">Add</button>
-      </form>
 
     　<hr>
 
