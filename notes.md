@@ -15,6 +15,16 @@ List = [
     id: 2,
     name: 'Clean the room',
     complete: false
+  },
+  {
+    id: 3,
+    name: 'Cook dinner',
+    complete: false
+  },
+  {
+    id: 4,
+    name: 'Wash dishes',
+    complete: true
   }
 ]
 
