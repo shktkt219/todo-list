@@ -10,24 +10,18 @@
 
       <hr>
 
+      <!-- add tasks -->
+
       <input placeholder="new task"
              ng-model="vm.currentTask.name">
       <button ng-click="vm.add()">Add</button>
 
       <hr>
 
-      <div ng-repeat="task in vm.list.tasks | orderBy: '$index' ">
-        <p>
-          {{ $index + 1 }}: {{ task.name }} - completed: {{ task.complete }}
-        </p>
-      </div>
-
-    　<hr>
-
       <div>
         <button>All Complete/Incomplete</button>
-        <button ng-click="ctrl.changeFilter()"
-                ng-class="{ active: !ctrl.currentFilter }">All <span>{{ ctrl.todos.length }}</span></button>
+        <button ng-click="vm.changeFilter()"
+                ng-class="{ active: !ctrl.currentFilter }">All <span>{{ vm.list.tasks.length }}</span></button>
         <button ng-click="ctrl.changeFilter(ctrl.filter.remaining)"
                 ng-class="{ active: ctrl.currentFilter == ctrl.filter.remaining }">Incomplete <span>n</span></button>
         <button ng-click="ctrl.changeFilter(filter.done)"
@@ -37,36 +31,11 @@
 
       <hr>
 
-      <ul>
-        <li class="todo-item"
-            ng-repeat="todo in ctrl.todos | filter: ctrl.currentFilter"
-            ng-class="{ done: todo.done}">
-          <form>
-            <input type="checkbox" ng-model="todo.done">
-            <p class="todo-title">{{ todo.title }}</p>
-            <span>
-              <button type="reset">Delete</button>
-            </span>
-          </form>
-        </li>
-      </ul>
-
-
-
-      <!-- <li class="todo-item done">
-        <form>
-          <input type="checkbox" checked>
-          <span class="todo-title">Completed Tasks</span>
-          <button type="reset">Delete</button>
-        </form>
-      </li>
-
-      <li class="todo-item editing">
-        <form>
-          <input type="checkbox">
-          <input type="text" required value="editing tasks">
-        </form>
-      </li> -->
+      <div ng-repeat="task in vm.list.tasks | orderBy: '$index' ">
+        <p>
+          {{ $index + 1 }}: {{ task.name }} - completed: {{ task.complete }}
+        </p>
+      </div>
 
     </div>
 

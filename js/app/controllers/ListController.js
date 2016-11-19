@@ -1,5 +1,6 @@
 function ListController(){
     var vm = this;
+    var selectedId = -1;
 
     vm.add = add;
     vm.currentTask = {};
@@ -30,9 +31,14 @@ function ListController(){
       ]
     }
 
+    function reset(){
+      selectedId = -1;
+    }
+
     function add(){
       vm.currentTask.complete = false;
       vm.list.tasks.push(vm.currentTask);
+      vm.currentTask = {};
     }
 
 
