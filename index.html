@@ -13,21 +13,23 @@
       <hr>
 
       <!-- add tasks -->
-      <input placeholder="new task"
-             ng-model="vm.currentTask.name">
-      <button ng-click="vm.add()">Add</button>
+      <form class="form-horizontal">
+        <input type="text" placeholder="new task"
+               ng-model="vm.currentTask.name">
+        <button class="btn btn-primary" ng-click="vm.add()">Add</button>
+      </form>
 
       <hr>
 
       <div>
-        <button>All Complete/Incomplete</button>
-        <button ng-click="vm.changeFilter()"
+        <button class="btn btn-success">All Complete/Incomplete</button>
+        <button class="btn" ng-click="vm.changeFilter()"
                 ng-class="{ active: !ctrl.currentFilter }">All <span>{{ vm.list.tasks.length }}</span></button>
-        <button ng-click="ctrl.changeFilter(ctrl.filter.remaining)"
+        <button class="btn" ng-click="ctrl.changeFilter(ctrl.filter.remaining)"
                 ng-class="{ active: ctrl.currentFilter == ctrl.filter.remaining }">Incomplete <span>n</span></button>
-        <button ng-click="ctrl.changeFilter(filter.done)"
+        <button class="btn" ng-click="ctrl.changeFilter(filter.done)"
                 ng-class="{ active: ctrl.currentFilter == ctrl.filter.done }">Complete <span>n</span></button>
-        <button>Delete all completed tasks</button>
+        <button class="btn btn-danger">Delete all completed tasks</button>
       </div>
 
       <hr>
