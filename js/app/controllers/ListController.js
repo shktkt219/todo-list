@@ -10,27 +10,27 @@ function ListController(){
         {
           id: 1,
           name: 'Take out trash',
-          complete: false
+          done: false
         },
         {
           id: 2,
           name: 'Clean the room',
-          complete: false
+          done: false
         },
         {
           id: 3,
           name: 'Cook dinner',
-          complete: false
+          done: false
         },
         {
           id: 4,
           name: 'Wash dishes',
-          complete: true
+          done: true
         },
         {
           id: 5,
           name: 'Pick up my son from school',
-          complete: false
+          done: false
         }
       ]
     }

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>To Do List</title>
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./bootstrap/css/todo.css">
   </head>
   <body ng-app="todoApp">
     <div ng-controller="ListController as vm">
@@ -12,7 +13,6 @@
       <hr>
 
       <!-- add tasks -->
-
       <input placeholder="new task"
              ng-model="vm.currentTask.name">
       <button ng-click="vm.add()">Add</button>
@@ -32,10 +32,13 @@
 
       <hr>
 
-      <div ng-repeat="task in vm.list.tasks | orderBy: '$index' ">
-        <p>
-          {{ $index + 1 }}: {{ task.name }} - completed: {{ task.complete }}
-        </p>
+      <div>
+        <ul class="list-unstyled">
+          <li  ng-repeat="task in vm.list.tasks">
+            <input type="checkbox" ng-model="task.done">
+            <span class="done-{{ task.done }}">{{ task.name }}</span>
+          </li>
+        </ul>
       </div>
 
     </div>
