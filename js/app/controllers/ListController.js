@@ -1,6 +1,5 @@
 function ListController(){
     var vm = this;
-    var selectedId = -1;
 
     vm.add = add;
     vm.currentTask = {};
@@ -27,12 +26,13 @@ function ListController(){
           id: 4,
           name: 'Wash dishes',
           complete: true
+        },
+        {
+          id: 5,
+          name: 'Pick up my son from school',
+          complete: false
         }
       ]
-    }
-
-    function reset(){
-      selectedId = -1;
     }
 
     function add(){
