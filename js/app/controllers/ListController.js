@@ -4,9 +4,7 @@ function ListController(){
     vm.add = add;
     vm.currentTask = {};
 
-    vm.list = {
-      name: 'Todo List',
-      tasks: [
+    vm.tasks = [
         {
           id: 1,
           name: 'Take out trash',
@@ -33,14 +31,25 @@ function ListController(){
           done: false
         }
       ]
-    }
 
+    // add
     function add(){
-      vm.currentTask.complete = false;
-      vm.list.tasks.push(vm.currentTask);
+      vm.currentTask.done = false;
+      vm.tasks.push(vm.currentTask);
       vm.currentTask = {};
     }
 
+    // filter
+    vm.filter = {
+      done: { done: true },
+      remaining: { done: false }
+    };
+
+    vm.currentFilter = null;
+
+    vm.changeFilter = function(filter){
+      vm.currentFilter = filter;
+    };
 
 
 }
